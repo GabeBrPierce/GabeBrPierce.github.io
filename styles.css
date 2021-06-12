@@ -1,0 +1,9 @@
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: fit-content;
+}
+.nav-item .nav-link{
+    padding-top: auto;
+    padding-bottom: auto;
+}
