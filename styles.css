@@ -7,3 +7,9 @@
     padding-top: auto;
     padding-bottom: auto;
 }
+.styles-bigger-icon{
+    font-size: 2em;
+}
+.clipboard-button:hover{
+    background-color: grey;
+}
