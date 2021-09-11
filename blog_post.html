@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-    <title>Gabriel Pierce</title>
+    <title>Single Incursive Functions</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +27,7 @@
 
 <body>
     <header class="sticky-top">
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark nav-color shadow-sm">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark nav-color ">
             <a class="navbar-brand" href="/index.html"><img src="/images/icons/gp_icon.svg" class="gabes_icon"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,11 +44,11 @@
                     <li class="nav-item ">
                         <a class="nav-link text-center" href="/gallery.html">Galleries</a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link text-center" href="/bloghome.html">Blog</a>
-                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link text-center" href="/contact.html">Contact <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-center" href="/bloghome.html">Blog <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-center" href="/contact.html">Contact</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link text-center" href="/resume.html">Resume</a>
@@ -58,11 +58,55 @@
             </div>
         </nav>
     </header>
-    <main><div class="container">
-            
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf7Rdpu0z4Xs_Ss-sN_G8ym_FBmAUJ2yXAoM_TXJUx8-9R4Ig/viewform?embedded=true" width="100%" height="1300" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-        </div>
-</main>
+    <main><!-- breadcrumby -->
+<nav aria-label="breadcrumb position-fixed">
+  <ol class="breadcrumb bg-dark rounded-0 shadow-sm mb-0">
+    <li class="link-light breadcrumb-item"><a href="/bloghome.html">Blog</a></li>
+    <li class="breadcrumb-item active text-light" aria-current="page">Single Incursive Functions</li>
+  </ol>
+</nav>
+<!--Begining of Img-->
+<div class="mb-1" style="position: relative; background: url(/images/blog_images/sif/sif.png) no-repeat fixed; height: 40vh; background-position: 0% 25%; background-size: cover;">
+  
+  <div style="position: absolute;top: 20px;left: 20px;background-color: black;color: white;padding-left: 20px;padding-right: 20px;">
+    <h1 class="mono-heading">Single Incursive Functions</h1>
+  </div>
+</div>
+<div class="container mb-5">
+
+<h2>Intro</h2>
+<p>
+    Google Sheets is a Robust and complex software.
+    Ranging from simple and intuitive formatting to advanced and complex function nesting.
+    I have grown to love the software, and I love it even more since I discovered this neat trick.
+</p>
+<h2>Getting Started</h2>
+<p>
+    First, you need to enable incusive calculation, 
+    then you need to set the number of calculations. 
+    The default as of 9/10/2021 is 50. Change this value to 1. 
+    Then click Save Settings.
+</p>
+<img src="/images/blog_images/sif/sif_options.png" alt="options of google sheets" class="mx-auto d-block" width="100%">
+
+<h2>Okay now what?</h2>
+<p>Now here is where things get interesting, now you can reference a cell in it's own formula! A easy way to show you its power is to develop a counter.</p>
+<p>First I am going to format that speadsheet we set up eariler. Here is how it is going to look.</p>
+
+<img src="/images/blog_images/sif/sifex1.png" alt="example of some formatting" class="mx-auto d-block" width="100%">
+
+<p>Now lets add a function that references itself! Here is what I came up with.</p>
+<code>=IF(RESET, 0, IF(UP_CHECKBOX,COUNTER+1,IF(DOWN_CHECKBOX,COUNTER-1,COUNTER)))</code>
+<p>A2-4 is the counter, and cells B3 and B5 are the up and down counters, respectifully. 
+    Lets see how it works!
+</p>
+<img src="/images/blog_images/sif/sifex2.png" alt="up checkbox" class="mx-auto d-block" width="100%">
+<img src="/images/blog_images/sif/sifex3.png" alt="down checkbox" class="mx-auto d-block" width="100%">
+<img src="/images/blog_images/sif/sifex4.png" alt="reset checkbox" class="mx-auto d-block" width="100%">
+<h2>Try It Yourself!</h2>
+<p>You can check out this sample and download it <a href="https://docs.google.com/spreadsheets/d/1-51ngG1Zb89vbHoGcjBMedvz9fwREbEYpykGGbXmBAo/edit?usp=sharing">here.</a></p>
+</div>
+<img srv="" <="" main="">
 <footer>
     <ul class="nav justify-content-center bg-dark fixed-bottom">
         <li class="nav-item">
@@ -87,4 +131,4 @@
 <script src="/scripts.js"></script>
 
 
-</body></html>
+</main></body></html>
