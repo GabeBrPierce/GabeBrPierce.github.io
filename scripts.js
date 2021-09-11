@@ -1,64 +1,6 @@
-/*this I got from the internet*/
-/*https://speckyboy.com/css-javascript-text-animation-snippets/*/
-var TxtRotate = function(el, toRotate, period) {
-    this.toRotate = toRotate;
-    this.el = el;
-    this.loopNum = 0;
-    this.period = parseInt(period, 10) || 2000;
-    this.txt = '';
-    this.tick();
-    this.isDeleting = false;
-};
-
-TxtRotate.prototype.tick = function() {
-    var i = this.loopNum % this.toRotate.length;
-    var fullTxt = this.toRotate[i];
-
-    if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-    } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-    }
-
-    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
-    var that = this;
-    var delta = 300 - Math.random() * 100;
-
-    if (this.isDeleting) { delta /= 2; }
-
-    if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-    }
-
-    setTimeout(function() {
-        that.tick();
-    }, delta);
-};
-
-window.onload = function() {
-    var elements = document.getElementsByClassName('txt-rotate');
-    for (var i = 0; i < elements.length; i++) {
-        var toRotate = elements[i].getAttribute('data-rotate');
-        var period = elements[i].getAttribute('data-period');
-        if (toRotate) {
-            new TxtRotate(elements[i], JSON.parse(toRotate), period);
-        }
-    }
-    // INJECT CSS
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-    document.body.appendChild(css);
-};
-/**/
 $(function() {
     console.log("ready!");
+    
     $(".clipboard-button").click(function(e) {
         e.preventDefault();
         var mystring = $(this).prop('id');
@@ -70,5 +12,71 @@ $(function() {
         });
         $(".clipboard-button").html('<i class="bi bi-clipboard"></i>');
         $(this).html('<i class="bi bi-clipboard-check"></i>');
+    });
+    // anything with the auto card class name will be converted into a card.
+    $(".auto_card").each(function(k, v){
+        card = this
+        url = $(this).attr("data-url");
+        $.post($(this).attr("data-url"), 
+            function (data, textStatus, jqXHR) {
+                
+                myobj = JSON.parse(data);
+                
+                tagString = "";
+                myobj.tags.forEach(element => {
+                    lowerColor = element[1];
+                    lowerColor = lowerColor.toLowerCase();
+                    
+                    lowerInput = element[0];
+                    lowerInput = lowerInput.toLowerCase();
+
+                   
+                    switch (lowerColor) {
+                        case "primary":
+                        case "blue":
+                        tagString += '<span class="badge rounded-pill bg-primary text-light">'+lowerInput+'</span>'
+                            break;
+                        case "secondary":
+                        case "grey":
+                        case "gray":
+                            tagString += '<span class="badge rounded-pill bg-secondary text-light">'+lowerInput+'</span>'
+                            break;
+                        case "success":
+                        case "green":
+                            tagString += '<span class="badge rounded-pill bg-success text-light">'+lowerInput+'</span>'
+                            break;
+                        case "danger":
+                        case "red":
+                            tagString += '<span class="badge rounded-pill bg-danger text-light">'+lowerInput+'</span>'
+                            break;
+                        case "warning":
+                        case "orange":
+                        case "yellow":
+                            tagString += '<span class="badge rounded-pill bg-warning text-dark">'+lowerInput+'</span>'
+                            break;
+                        case "info":
+                        case "cyan":
+                            tagString += '<span class="badge rounded-pill bg-info text-dark">'+lowerInput+'</span>'
+                            break;
+                        case "light":
+                        case "white":
+                            tagString += ' <span class="badge rounded-pill bg-light text-dark">'+lowerInput+'</span>'
+                            break;
+                        case "dark":
+                        case "black":
+                            tagString += '<span class="badge rounded-pill bg-dark text-light">'+lowerInput+'</span>'
+                            break;
+                        default:
+                            tagString += '<span class="badge rounded-pill bg-light text-light">'+lowerInput+'</span>'
+                            break;
+                    }
+                });
+                text = ["<div class='card'><div class='card-header mono-heading'><i>",myobj.created,"</i></div><div class='card-body blog-card-body' ><h5 class='card-title mono-heading'>",myobj.title,"</h5><div class='row'><div class='col-md-9'><p class='card-text lead'>",myobj.teaser,"</p></div><div class='col-3 d-none d-md-block '><img src='",myobj.img,"' alt='test img' width='auto' height='100px'></div></div><a href='"+url+"' class='btn btn-primary mt-2'>Read More</a></div><div class='card-footer text-muted'><div class='row'><div class='col-sm-8'>",tagString,"</div><div class='col-2 d-none d-sm-block'>",myobj.series,"</div><div class='col-sm-2'>",myobj.author,"</div></div></div>"].join('');
+                console.log(text);
+                $(card).replaceWith(text);
+
+            }
+        );
+            
     });
 });

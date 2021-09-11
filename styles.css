@@ -1,7 +1,9 @@
-.navbar {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: fit-content;
+
+.nav-color {
+    background-color: black;
+}
+.nav-link {
+    background-color: #343a40;
 }
 
 .nav-item .nav-link {
@@ -35,3 +37,8 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+.gabes_icon {
+    height: 2em;
+    padding-right: 1em;
+}
+
