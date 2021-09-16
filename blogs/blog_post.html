@@ -80,7 +80,7 @@
 </p>
 <h2>Getting Started</h2>
 <p>
-    First, you need to enable incusive calculation, 
+    First, you need to enable incursive calculation, 
     then you need to set the number of calculations. 
     The default as of 9/10/2021 is 50. Change this value to 1. 
     Then click Save Settings.
@@ -88,15 +88,15 @@
 <img src="/images/blog_images/sif/sif_options.png" alt="options of google sheets" class="mx-auto d-block" width="100%">
 
 <h2>Okay now what?</h2>
-<p>Now here is where things get interesting, now you can reference a cell in it's own formula! A easy way to show you its power is to develop a counter.</p>
+<p>Now here is where things get interesting, now you can reference a cell in its own formula! An easy way to show you its power is to develop a counter.</p>
 <p>First I am going to format that speadsheet we set up eariler. Here is how it is going to look.</p>
 
 <img src="/images/blog_images/sif/sifex1.png" alt="example of some formatting" class="mx-auto d-block" width="100%">
 
-<p>Now lets add a function that references itself! Here is what I came up with.</p>
+<p>Now let's add a function that references itself! Here is what I came up with.</p>
 <code>=IF(RESET, 0, IF(UP_CHECKBOX,COUNTER+1,IF(DOWN_CHECKBOX,COUNTER-1,COUNTER)))</code>
 <p>A2-4 is the counter, and cells B3 and B5 are the up and down counters, respectifully. 
-    Lets see how it works!
+    Let's see how it works!
 </p>
 <img src="/images/blog_images/sif/sifex2.png" alt="up checkbox" class="mx-auto d-block" width="100%">
 <img src="/images/blog_images/sif/sifex3.png" alt="down checkbox" class="mx-auto d-block" width="100%">
