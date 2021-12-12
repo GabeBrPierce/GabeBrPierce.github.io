@@ -32,6 +32,18 @@ if (!isset($file_type)) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <title><?php echo $title ?></title>
     <link rel="shortcut icon" type="svg" href="images/drawing.svg" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-215052267-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-215052267-1');
+    </script>
 </head>
 
 <body>
@@ -62,7 +74,7 @@ if (!isset($file_type)) {
                     $file_name = "resume";
                     $display = ".";
                     ?>
-                    <li class="nav-item <?php echo ($display == "." || $display == $file_type ? "" : "d-none")?>">
+                    <li class="nav-item <?php echo ($display == "." || $display == $file_type ? "" : "d-none") ?>">
                         <a class="nav-link <?php echo ($index == $cur ? "active" : "") ?>" <?php echo ($index == $cur ? 'aria-current="page"' : "") ?> href="<?php echo ($index == $cur ? "#" : "$file_name.$file_type") ?>"><?php echo $text ?></a>
                     </li>
 
@@ -72,7 +84,7 @@ if (!isset($file_type)) {
                     $file_name = "schedule";
                     $display = "php";
                     ?>
-                    <li class="nav-item <?php echo ($display == "." || $display == $file_type ? "" : "d-none")?>">
+                    <li class="nav-item <?php echo ($display == "." || $display == $file_type ? "" : "d-none") ?>">
                         <a class="nav-link <?php echo ($index == $cur ? "active" : "") ?>" <?php echo ($index == $cur ? 'aria-current="page"' : "") ?> href="<?php echo ($index == $cur ? "#" : "$file_name.$file_type") ?>"><?php echo $text ?></a>
                     </li>
 
@@ -82,7 +94,7 @@ if (!isset($file_type)) {
                     $file_name = "contact";
                     $display = "html";
                     ?>
-                    <li class="nav-item <?php echo ($display == "." || $display == $file_type ? "" : "d-none")?>">
+                    <li class="nav-item <?php echo ($display == "." || $display == $file_type ? "" : "d-none") ?>">
                         <a class="nav-link <?php echo ($index == $cur ? "active" : "") ?>" <?php echo ($index == $cur ? 'aria-current="page"' : "") ?> href="<?php echo ($index == $cur ? "#" : "$file_name.$file_type") ?>"><?php echo $text ?></a>
                     </li>
 
