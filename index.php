@@ -9,7 +9,7 @@ include "includes/01_header.php";?>
         <div class="container">
 		
         <div class="clearfix">
-            <img src="images/Face3.jpg" class="col-md-3 float-md-start m-3 ms-md-3 img-thumbnail" alt="Gabriel Pierce smiling.">
+            <img src="images/face3.jpg" class="col-md-3 float-md-start m-3 ms-md-3 img-thumbnail" alt="Gabriel Pierce smiling.">
             <p>
                 I, Gabriel Pierce, have the privilege to call myself by many titles. A father, a husband, a Christian, but most know me by my work title, a software developer. I have many skills, and know many languages, which can be seen on my RESUMELINK. But in school I majored in Web Development.
             </p>
